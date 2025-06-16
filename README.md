@@ -2,6 +2,22 @@
 
 This project implements a complete stereo vision pipeline using OpenCV, supporting color image processing, disparity and depth map computation, point cloud generation, and 3D mesh reconstruction with color. It is designed for research and engineering applications in 3D vision, robotics, and photogrammetry.
 
+## Quick Start with Docker
+
+You can use the pre-built Docker image to run this project without manual environment setup:
+
+```bash
+# Pull the image
+docker pull leeergou/3dproj
+
+# Run the container (with code-server, port 8443)
+docker run -it -p 8443:8443 leeergou/3dproj
+```
+
+Then open your browser and visit `http://localhost:8443` to access the code-server environment with all project files and dependencies ready.
+
+---
+
 ## Features
 
 - **Flexible Image Input**: Supports both grayscale and color stereo images.
