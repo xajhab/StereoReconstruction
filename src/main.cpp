@@ -73,9 +73,9 @@ int main() {
     FeatureType algorithm = FeatureType::ORB;  // Default use ORB
     
     // Image paths
-    std::string leftImagePath = "/config/workspace/rootba/data/left.png";
-    std::string rightImagePath = "/config/workspace/rootba/data/right.png";
-    std::string outputBasePath = "/config/workspace/rootba/test/";
+    std::string leftImagePath = "../data/left.png";
+    std::string rightImagePath = "../data/right.png";
+    std::string outputBasePath = "../test/";
     std::string outputPath = outputBasePath + "disparity.png";
     
     std::cout << "\n1. Start stereo vision processing..." << std::endl;
