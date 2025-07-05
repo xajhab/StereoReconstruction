@@ -158,7 +158,9 @@ int main() {
     
     // Stereo rectification and disparity computation
     cv::Mat rectL, rectR;
-    DenseMatcher denseMatcher(K, distCoeffs, numDisparities, blockSize);
+    // DenseMatcher denseMatcher(K, distCoeffs, numDisparities, blockSize);
+    DenseMatcher denseMatcher(K, distCoeffs, numDisparities, blockSize, /*useCustomMatcher=*/true);
+
 
     if (!denseMatcher.rectifyImages(imgL, imgR, R, t, rectL, rectR)) {
         std::cerr << "Error: Stereo rectification failed" << std::endl;
@@ -307,14 +309,14 @@ int main() {
     std::cout << "Successfully saved color depth map" << std::endl;
 
     // Save original depth map (float format)
-    std::string rawDepthPath = outputBasePath + "depth_raw.exr";
+    // std::string rawDepthPath = outputBasePath + "depth_raw.exr";
     
-    if (cv::imwrite(rawDepthPath, depthMap)) {
-        std::cout << "Successfully saved original depth map to: " << rawDepthPath << std::endl;
-    } else {
-        std::cerr << "Error: Cannot save original depth map to " << rawDepthPath << std::endl;
-        return -1;
-    }
+    // if (cv::imwrite(rawDepthPath, depthMap)) {
+    //     std::cout << "Successfully saved original depth map to: " << rawDepthPath << std::endl;
+    // } else {
+    //     std::cerr << "Error: Cannot save original depth map to " << rawDepthPath << std::endl;
+    //     return -1;
+    // }
 
     std::cout << "\n7. Mesh reconstruction..." << std::endl;
 
@@ -353,7 +355,7 @@ int main() {
     std::cout << "\n📏 Depth map:" << std::endl;
     std::cout << "  - " << depthImagePath << " (Normalized)" << std::endl;
     std::cout << "  - " << outputBasePath << "depth_color.png (Color)" << std::endl;
-    std::cout << "  - " << rawDepthPath << " (Original float)" << std::endl;
+    //std::cout << "  - " << rawDepthPath << " (Original float)" << std::endl;
     
     std::cout << "\n🧊 3D mesh:" << std::endl;
     std::cout << "  - " << meshOutputPath << " (PLY format)" << std::endl;
